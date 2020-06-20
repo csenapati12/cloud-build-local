@@ -1,3 +1,4 @@
+steps:
 # run integration tests in a VM.
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'

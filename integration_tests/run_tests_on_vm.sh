@@ -1,8 +1,8 @@
 gcloud init
-gcloud config set project ci-pipeline
+gcloud config set project CI Pipeline
 
 # setup service account necessary (can't be done in Terraform)
-PROJECT_ID='ci-pipeline'
+PROJECT_ID='CI Pipeline'
 PROJECT_NUMBER='1091869076154'
 
 # Allow the Cloud Functions to access the bigQuery
@@ -23,7 +23,7 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
     --role=roles/cloudfunctions.developer
 
 #clone repo
-gcloud source repos clone covid-analytics-git --project=ci-pipeline
+gcloud source repos clone covid-analytics-git --project=CI Pipeline
 #enable compute engine api
 gcloud services enable compute.googleapis.com 
 

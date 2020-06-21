@@ -1,4 +1,14 @@
 steps:
+- name: 'gcr.io/cloud-builders/go:debian'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    find . -type d -maxdepth 1 | grep -Ev "vendor|.git|gopath|integration_tests" | xargs /builder/bin/go.bash test
+
+# Binary creation.
+- name: 'gcr.io/cloud-builders/go:debian'
+  args: ['build', '-o', 'cloud-build-local', 'github.com/GoogleCloudPlatform/cloud-build-local']
 # run integration tests in a VM.
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
